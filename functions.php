@@ -15,4 +15,49 @@ function ibwp_assets_including(){
 	wp_enqueue_script('ibwp_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', array('jquery'), '1.0', false);
 }
 add_action("wp_enqueue_scripts","ibwp_assets_including");
+
+// registering sidebar
+function ibwp_register_sidebars(){
+	register_sidebar(
+        array(
+            'name'          => __( 'Single Post Sidebar', 'ibwp' ),
+            'id'            => 'single_post_right_sidebar',
+            'description'   => __( 'Right Sidebar', 'ibwp' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name'          => __( 'footer left', 'ibwp' ),
+            'id'            => 'footer-left',
+            'description'   => __( 'Right Sidebar', 'ibwp' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
+}
+add_action("widgets_init","ibwp_register_sidebars");
+
+// password protected post handle
+function ibwp_password_protected_handle($the_excerpt){
+	if(!post_password_required(  )){
+		the_excerpt();
+	}else{
+		get_the_password_form(  );
+	}
+
+}
+add_action( "the_excerpt", "ibwp_password_protected_handle");
+
+// change the word protected from the post title
+function ithemeone_change_protected_title(){
+    return "%s";
+}
+add_filter("protected_title_format", "ithemeone_change_protected_title");
 ?>
