@@ -3,21 +3,7 @@
    get_header();
 ?>
 <body <?php body_class(  ); ?> >
-<div class="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <a href="http://localhost/ithemeone/about/">
-                   <h3 class="tagline">
-                    <?php echo bloginfo( "name" ); ?>
-                   </h3> 
-                </a>
-                
-                <h1 class="align-self-center display-1 text-center heading"><?php bloginfo("description"); ?></h1>
-            </div>
-        </div>
-    </div>
-</div>
+<?php get_template_part( "hero" ); ?>
 <div class="posts <?php post_class(  ); ?>" >
     <!-- post started -->
     <?php
@@ -70,9 +56,16 @@
                            
                         ?>
                         <!-- checking single page or not end -->
-
-                        
                     </p>
+                </div>
+                <div class="col-md-10 offset-md-1">
+                   <!-- check comments open or not and show comments start -->
+                   <?php
+                    if(comments_open(  )){
+                        comments_template();
+                    }
+                   ?>
+                   <!-- check comments open or not and show comments end -->
 
                 </div>
                 
@@ -84,34 +77,7 @@
     }
     ?>
     <!-- post end -->  
-</div>
-    <div class="posts_pagination">
-        <div class="container">
-            <div class="row">
-               <div class="col-md-4">
-                <!-- post pagination start -->
-                   <?php 
-
-                      the_posts_pagination( array(
-                        'mid_size'  => 2,
-                        'screen_reader_text' => '',
-                        'prev_text' => __( 'New Post', 'ibwp' ),
-                        'next_text' => __( 'Old Post', 'ibwp' ),
-                    ) ); 
-
-                    ?>
-                <!-- post pagination end -->
-
-               </div>
-               <div class="col-md-8">
-                   
-               </div>  
-            </div>
-        </div>
-    </div>
-    
-</div>
-    
+</div>  
 
 <?php
    
