@@ -46,9 +46,14 @@
                          the_date(); 
                         ?>
                     </p>
-                    <ul class="list-unstyled">
+                    <!-- <ul class="list-unstyled">
                         <li>dhaka</li>
-                    </ul>
+                    </ul> -->
+
+                    <!-- showing post tags start -->
+                   <?php echo get_the_tag_list( "<ul class=\"list-unstyled\"><li>", "<li></li>","</li></ul>"); ?>
+                    <!-- showing post tags end -->
+
                 </div>
                 <div class="col-md-8">
                     <p>
@@ -61,7 +66,7 @@
                     <p>
                         <?php
                         //  check if the page is singel or home page 
-                         the_content();
+                         the_excerpt();
                             
                         ?>
                     </p>
@@ -74,6 +79,31 @@
     }
     ?>
     <!-- post end -->  
+    <div class="posts_pagination">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-4">
+                <!-- post pagination start -->
+                   <?php 
+
+                      the_posts_pagination( array(
+                        'mid_size'  => 2,
+                        'screen_reader_text' => '',
+                        'prev_text' => __( 'New Post', 'ibwp' ),
+                        'next_text' => __( 'Old Post', 'ibwp' ),
+                    ) ); 
+
+                    ?>
+                <!-- post pagination end -->
+
+               </div>
+               <div class="col-md-8">
+                   
+               </div>  
+            </div>
+        </div>
+    </div>
+    
 </div>
     
 
