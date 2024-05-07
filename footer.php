@@ -1,7 +1,7 @@
 <div class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <?php 
                  if(is_active_sidebar("footer-left")){
                     dynamic_sidebar("footer-left");

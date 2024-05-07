@@ -13,7 +13,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ibwp
 Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, style-variations, accessibility-ready, blog, portfolio, news
 */
-
+#topmenucontainer{
+    display: inline;
+    text-align: center;
+}
+.list-decoration{
+    display: inline;
+}
  h1.heading {
             font-family: "Arial Black";
             width: 700px;
@@ -68,6 +74,8 @@ Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, feature
         .tags li{
             color: #3D9970;
         }
+}
+}
 .text_decoration_single{
     text-align: center;
 }

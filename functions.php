@@ -1,11 +1,14 @@
 <?php
 // Basic theme setup
 function ibwp_after_setup_theme(){
-	load_theme_textdomain( "ibwp");
+	load_theme_textdomain("ibwp");
 	add_theme_support( "post-thumbnails" );
 	add_theme_support("title-tag");
+    // register menu location
+    register_nav_menu( "topmenu", __("Top Menu","ibwp"));
 }
 add_action("after_setup_theme","ibwp_after_setup_theme");
+
 
 // asset including
 function ibwp_assets_including(){
@@ -44,20 +47,14 @@ function ibwp_register_sidebars(){
 }
 add_action("widgets_init","ibwp_register_sidebars");
 
-// password protected post handle
-function ibwp_password_protected_handle($the_excerpt){
-	if(!post_password_required(  )){
-		the_excerpt();
-	}else{
-		get_the_password_form(  );
-	}
+function ibwp_nav_class( $classes, $item ) {
+    $classes[] = "list-decoration";
 
+    return $classes;
 }
-add_action( "the_excerpt", "ibwp_password_protected_handle");
 
-// change the word protected from the post title
-function ithemeone_change_protected_title(){
-    return "%s";
-}
-add_filter("protected_title_format", "ithemeone_change_protected_title");
+add_filter( "nav_menu_css_class", "ibwp_nav_class", 10, 2 );
+
 ?>
+
+
