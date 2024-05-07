@@ -79,3 +79,9 @@ Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, feature
 .text_decoration_single{
     text-align: center;
 }
+.page-header{
+            background-position: center;
+            background-size: cover;
+            margin-bottom:30px;
+            padding:170px 0px;
+ }
