@@ -14,8 +14,12 @@ add_action("after_setup_theme","ibwp_after_setup_theme");
 function ibwp_assets_including(){
 	// css
     wp_enqueue_style( "ibwp_main_css", get_stylesheet_uri(),null,'1.0');
+    // externall css add
+    wp_enqueue_style( "ibwp_feather_light_css","//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css");
 	// js
 	wp_enqueue_script('ibwp_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', array('jquery'), '1.0', false);
+    // external js add
+    wp_enqueue_script('ibwp_feather_light_jss', "//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js", array('jquery'), '1.0', true);
 }
 add_action("wp_enqueue_scripts","ibwp_assets_including");
 
