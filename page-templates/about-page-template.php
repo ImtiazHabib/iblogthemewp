@@ -9,7 +9,7 @@
    get_header();
 ?>
 <body <?php body_class(  ); ?> >
-<?php get_template_part( "hero-page" ); ?>
+<?php get_template_part( 'template-parts/about-page-template/hero-page' ); ?>
 <div class="container">
     <div class="row">
         <div class="col-md-8">

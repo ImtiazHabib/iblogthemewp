@@ -3,7 +3,7 @@
 
 ?>
 <body <?php body_class(  ); ?> >
-<?php get_template_part( "hero" ); ?>
+<?php get_template_part( "template-parts/common/hero" ); ?>
 <div class="posts">
         <?php
         $wp_query = new WP_Query(array('posts_per_page'=>1));

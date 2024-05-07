@@ -13,6 +13,8 @@ function ibwp_after_setup_theme(){
 	load_theme_textdomain("ibwp");
 	add_theme_support( "post-thumbnails" );
 	add_theme_support("title-tag");
+    // custom-header
+    add_theme_support( "custom-header");
     // register menu location
     register_nav_menu( "topmenu", __("Top Menu","ibwp"));
 }
@@ -68,6 +70,38 @@ function ibwp_nav_class( $classes, $item ) {
     return $classes;
 }
 add_filter( "nav_menu_css_class", "ibwp_nav_class", 10, 2 );
+
+// removing inline css from the code
+function ibwp_remove_inline_css(){
+
+    if(is_page(  )){
+
+    $post_thumbnail_image = get_the_post_thumbnail_url(null,"large");
+    ?>
+       <style>
+        .page-header{
+            background-image: url(<?php echo $post_thumbnail_image; ?>);
+        }
+           
+       </style>
+    <?php
+    }
+
+    if(is_front_page()){
+        if(current_theme_supports("custom-header")){
+            ?>
+            <style>
+        .header{
+            background-image: url(<?php echo header_image(); ?>);
+        }
+           
+       </style>
+            <?php
+        }
+    }
+}
+
+add_action( "wp_head", "ibwp_remove_inline_css", 11);
 
 ?>
 
