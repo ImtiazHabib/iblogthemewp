@@ -13,8 +13,24 @@ function ibwp_after_setup_theme(){
 	load_theme_textdomain("ibwp");
 	add_theme_support( "post-thumbnails" );
 	add_theme_support("title-tag");
+
+    // custom header attributes
+    $ibwp_custom_header_extra_support = array(
+        'header-text' => true,
+        'default-text-color' => '#dd9933',
+    );
     // custom-header
-    add_theme_support( "custom-header");
+    add_theme_support( "custom-header", $ibwp_custom_header_extra_support);
+
+    // custom logo attributes
+    $ibwp_custom_logo_extra_support = array(
+        "flex-width" => 100,
+        "flex-height" => 100,
+    );
+    // custom logo support
+    add_theme_support("custom-logo",$ibwp_custom_logo_extra_support);
+    // custom background
+    add_theme_support( "custom-background" );
     // register menu location
     register_nav_menu( "topmenu", __("Top Menu","ibwp"));
 }
@@ -91,11 +107,21 @@ function ibwp_remove_inline_css(){
         if(current_theme_supports("custom-header")){
             ?>
             <style>
-        .header{
-            background-image: url(<?php echo header_image(); ?>);
-        }
-           
-       </style>
+                .header{
+                    background-image: url(<?php echo header_image(); ?>);
+                }
+
+                h1.heading{
+                    color :#<?php echo get_header_textcolor(); ?>;
+
+                    <?php 
+               
+                       if(!display_header_text()){
+                        echo "display: none;";
+                       }
+                    ?>
+                }  
+            </style>
             <?php
         }
     }

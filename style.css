@@ -85,3 +85,10 @@ Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, feature
             margin-bottom:30px;
             padding:170px 0px;
  }
+.header-logo{
+    margin-bottom: 40px;
+    text-align: center;
+}
+.header-logo img{
+    border-radius: 50px;
+}

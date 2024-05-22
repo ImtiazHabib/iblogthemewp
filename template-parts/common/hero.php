@@ -7,9 +7,21 @@
                     <?php echo bloginfo( "name" ); ?>
                    </h3> 
                 </a>
+                <!-- logo section start -->
+                <?php
+                 if(current_theme_supports( "custom-logo" )){
+                    ?>
+                    <div class="header-logo text-center">
+                        <?php echo get_custom_logo(); ?>
+                    </div>
+                    <?php
+                 }
+                ?>
+                <!-- logo section end -->
                 <a href="<?php echo site_url( ); ?>">
                    <h1 class="align-self-center display-1 text-center heading"><?php bloginfo("description"); ?></h1>
                 </a>
+
             </div>
             <div class="col-md-6">
                 <div class="navigation_menu">
