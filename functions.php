@@ -33,16 +33,21 @@ function ibwp_after_setup_theme(){
     add_theme_support( "custom-background" );
     // register menu location
     register_nav_menu( "topmenu", __("Top Menu","ibwp"));
+    // post format support add 
+    add_theme_support( "post-formats",array("image","audio","quote","video"));
 }
 add_action("after_setup_theme","ibwp_after_setup_theme");
 
 
 // asset including
 function ibwp_assets_including(){
-	// css
-    wp_enqueue_style( "ibwp_main_css", get_stylesheet_uri(),null,VERSION);
+	
     // externall css add
     wp_enqueue_style( "ibwp_feather_light_css","//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css");
+    // add dashicons
+    wp_enqueue_style("dashicons");
+    // css
+    wp_enqueue_style( "ibwp_main_css", get_stylesheet_uri(),null,VERSION);
 	// js
 	wp_enqueue_script('ibwp_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', array('jquery'), VERSION, false);
     // external js add

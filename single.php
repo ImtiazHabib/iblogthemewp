@@ -20,6 +20,16 @@
                                     <?php
                                         the_title(  );
                                     ?>
+                                    <!-- checking post format and change according to that -->
+                                    <?php
+                                    if(has_post_format( 'quote' ))
+                                    {
+                                        echo '<span class="dashicons dashicons-editor-quote"></span>';
+                                    }elseif(has_post_format( 'video' ))
+                                    {
+                                        echo '<span class="dashicons dashicons-format-video"></span>';
+                                    }
+                                    ?>
                              </h2>
                           
                             <p class="text_decoration_single">
@@ -59,6 +69,9 @@
 
                                        
                                          the_content(  );
+
+                                         // page break show
+                                         wp_link_pages(  );
 
                                          next_post_link();
                                          
