@@ -1,12 +1,17 @@
 <?php
     
    get_header();
+   $ibwp_class_layout_change = "col-md-8";
+   if(!is_active_sidebar("single_post_right_sidebar")){
+     $ibwp_class_layout_change = "col-md-12";
+   }
 ?>
 <body <?php body_class(  ); ?> >
 <?php get_template_part( "template-parts/common/hero" ); ?>
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <!-- changing class layout -->
+        <div class="<?php echo $class_layout_change; ?>">
             <div class="posts <?php post_class(  ); ?>" >
                 <!-- post started -->
                 <?php

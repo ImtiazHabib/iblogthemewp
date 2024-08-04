@@ -134,6 +134,16 @@ function ibwp_remove_inline_css(){
 
 add_action( "wp_head", "ibwp_remove_inline_css", 11);
 
+// add body class, Post class edition is same just code change
+function ibwp_body_class($classes){
+    // delete custom-background named class from body class 
+    unset($classes[array_search("custom-background", $classes)]);
+    // adding any class ex: one-class
+    $classes[] = "one-class";
+    return $classes;
+}
+add_filter( "body_class","ibwp_body_class");
+
 ?>
 
 
