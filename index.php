@@ -28,9 +28,10 @@
                 <div class="col-md-4">
                     <p>
                         <strong>
+                        <!-- Author page link add -->
                         <?php
-                            the_author(  );
-                        ?> 
+                         the_author_posts_link(); 
+                        ?>
                         </strong><br/>
                         <?php
                          the_date(); 

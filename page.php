@@ -18,7 +18,9 @@
                                 <?php the_title(); ?>
                             </h2>
                             <p class="text-center">
-                                <em><?php the_author(); ?></em><br/>
+                                <em><?php
+                         the_author_posts_link(); 
+                        ?></em><br/>
                                 <?php echo get_the_date(); ?>
                             </p>
                         </div>

@@ -1,5 +1,7 @@
 <?php
-
+if ( class_exists( 'Attachments' ) ) {
+    require_once "lib/attachments.php";
+}
 // cache busting solve in Version
 if(site_url()=="http://localhost/ithemeone"){
   define("VERSION",time());
@@ -46,10 +48,14 @@ function ibwp_assets_including(){
     wp_enqueue_style( "ibwp_feather_light_css","//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css");
     // add dashicons
     wp_enqueue_style("dashicons");
+    // tiny slider
+    wp_enqueue_style( "tns-style","//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.7.1/tiny-slider.css" );
     // css
     wp_enqueue_style( "ibwp_main_css", get_stylesheet_uri(),null,VERSION);
 	// js
 	wp_enqueue_script('ibwp_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', array('jquery'), VERSION, false);
+    // tiny slider
+    wp_enqueue_script( "tns-js", "//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.7.1/min/tiny-slider.js", null, "0.0.1", true );
     // external js add
     wp_enqueue_script('ibwp_feather_light_jss', "//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js", array('jquery'), VERSION, true);
     // internal js add
