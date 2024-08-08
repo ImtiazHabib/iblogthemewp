@@ -41,6 +41,30 @@
                             </div>
                         </div>
                         <div class="row">
+                            <!-- testimonial section start -->
+                            <div class="row">
+                                <div class="col-md-8 offset-md-1">
+                                    <div class="testimonial slider text-center">
+                                        <?php
+                                            if ( class_exists( 'Attachments' ) ) {
+                                                $attachments = new Attachments( 'testimonial' );
+                                                if ( $attachments->exist() ) {
+                                                    while ( $attachment = $attachments->get() ) { ?>
+                                                        <div>
+                                                            <?php echo $attachments->image( 'thumbnail' ); ?>
+                                                            <h4><?php echo esc_html( $attachments->field( 'name' ) ); ?></h4>
+                                                            <p><?php echo esc_html($attachments->field( 'position' )); ?></p>
+                                                            <p><?php echo esc_html($attachments->field( 'testimonial' )); ?></p>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                }
+                                            }
+                                            ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- testimonial section end -->
                             <div class="col-md-12">
                                 <!-- <ul class="list-unstyled">
                                     <li>dhaka</li>
