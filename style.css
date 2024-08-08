@@ -92,3 +92,7 @@ Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, feature
 .header-logo img{
     border-radius: 50px;
 }
+.search-highlight{
+    background:yellow;
+    font-weight: 700;
+}

@@ -38,4 +38,30 @@
             </div>
         </div>
     </div>
+
+    
+    <!-- search form add start -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="search_form_section text-center">
+                    <?php 
+                      if(!is_front_page() && is_search()){
+                        ?>
+                          <h4>
+                                <?php _e('You Search for','ibwp'); ?> : <?php echo the_search_query(); ?>
+                            </h4>
+                        <?php 
+                      }
+                    ?>
+                    <?php
+                    echo get_search_form( );
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- search form add end -->
+  
 </div>

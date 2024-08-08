@@ -15,6 +15,7 @@ function ibwp_after_setup_theme(){
 	load_theme_textdomain("ibwp");
 	add_theme_support( "post-thumbnails" );
 	add_theme_support("title-tag");
+    add_theme_support( 'html5', array( 'search-form' ) );
 
     // custom header attributes
     $ibwp_custom_header_extra_support = array(
@@ -149,6 +150,20 @@ function ibwp_body_class($classes){
     return $classes;
 }
 add_filter( "body_class","ibwp_body_class");
+
+// highlighting the search result start 
+function ibwp_highlight_search_results($text){
+    if(is_search()){
+        $pattern = '/('. join('|', explode(' ', get_search_query())).')/i';
+        $text = preg_replace($pattern, '<span class="search-highlight">\0</span>', $text);
+    }
+    return $text;
+}
+add_filter('the_content', 'ibwp_highlight_search_results');
+add_filter('the_excerpt', 'ibwp_highlight_search_results');
+add_filter('the_title', 'ibwp_highlight_search_results');
+// highlighting the search result end  
+
 
 ?>
 
