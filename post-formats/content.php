@@ -90,9 +90,9 @@
                             <!-- showing author information end -->
 
                             <div class="col-md-12">
-                               <!-- check comments open or not and show comments start -->
+                               <!-- check post password need or not  or not and show comments start -->
                                <?php
-                                if(comments_open(  )){
+                                if(!post_password_required()){
                                     comments_template();
                                 }
                                ?>
