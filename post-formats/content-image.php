@@ -69,7 +69,28 @@
                                                     echo "<img src='".esc_url( $ibwp_image_path[0] ). "'/>'";
 
                                                     ?>
+                                                    <!-- metabox file k dekhanor jnno code start -->
+                                                    <p>
+                                                    <?php 
+                                                    // get the i_file id 
+                                                     $file_i = get_field("i_file");
+                                                     if($file_i){
+                                                        $file_url = wp_get_attachment_url( $file_i );
+                                                        // getting this file thumbnail
+                                                        $file_thumbnail = get_field("thumbnail",$file_url);
+                                                        if($file_thumbnail){
+                                                            $file_thumb_details = wp_get_attachment_image_src($file_thumbnail);
+                                                            echo "<a href='{$file_url}' target='_blank' ><img src='".esc_url( $file_thumb_details[0] ). "'/></a>";
+                                                        }else{
+                                                            echo "<a href='{$file_url}' target='_blank' >{$file_url}</a>";
+                                                        }
+                                                     }
 
+                                                    ?>
+                                                    </p>
+
+                                         
+                                                    <!-- metabox file k dekhanor jnno code end -->
                                                 
                                             </div>
 
@@ -79,6 +100,9 @@
 
                                          ?>
                                          <!-- metabox field acf section end -->
+
+
+
 
                                          <?php
                                          next_post_link();
