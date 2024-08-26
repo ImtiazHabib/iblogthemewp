@@ -166,13 +166,13 @@ add_filter('the_title', 'ibwp_highlight_search_results');
 // highlighting the search result end  
 
 // if i wan to remove dhaka tag post form home page, edit WP_query
-function ibwp_wp_query_edit($wpq){
-    // checking home page or not
-    if(is_home() && $wpq->is_main_query()){
-        $wpq->set("tag__not_in",array(4));
-    }
-}
-add_action("pre_get_posts","ibwp_wp_query_edit");
+// function ibwp_wp_query_edit($wpq){
+//     // checking home page or not
+//     if(is_home() && $wpq->is_main_query()){
+//         $wpq->set("tag__not_in",array(4));
+//     }
+// }
+// add_action("pre_get_posts","ibwp_wp_query_edit");
 
 ?>
 

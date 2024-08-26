@@ -50,6 +50,37 @@
                                          // page break show
                                          wp_link_pages(  );
 
+                                         ?>
+                                         <!-- metabox field acf section start -->
+                                         <?php
+                                          if(function_exists("the_field")){
+                                            ?>
+                                            <div class="metafield">
+                                                <h1>camera Model : <?php the_field("camera_model"); ?></h1>
+                                                <h1>Capture date : 
+                                                    <?php 
+                                                    $ibwp_capture_date = get_field("capture_date"); 
+                                                    echo $ibwp_capture_date;
+                                                    ?></h1>
+
+                                                    <?php 
+                                                    $ibwp_image = get_field("image");
+                                                    $ibwp_image_path = wp_get_attachment_image_src( $ibwp_image);
+                                                    echo "<img src='".esc_url( $ibwp_image_path[0] ). "'/>'";
+
+                                                    ?>
+
+                                                
+                                            </div>
+
+                                            <?php
+                                          }
+                                         
+
+                                         ?>
+                                         <!-- metabox field acf section end -->
+
+                                         <?php
                                          next_post_link();
                                          
                                          echo "</br>";
